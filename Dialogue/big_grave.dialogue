@@ -1,0 +1,2 @@
+if Utils.get_pawn_dir("Player") == Vector2.UP: 
+	"RPG MAKER MEMORIAL": "This memorial dedicated to those who perished on the walk."

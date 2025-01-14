@@ -1,0 +1,4 @@
+do wait(1.0)
+do Utils.turn(Vector2.DOWN, "Player")
+do wait(1.0)
+Player: You know, you can't fall [i]down[/i] the hole, if you're already [wave]at the bottom[/wave].

@@ -1,0 +1,8 @@
+Wizard: How was that?
+Wizard: Pretty cool, huh?
+Wizard: You wanna go back?
+- Yes
+	Wizard: Sure thing.
+	do Utils.transfer("world", Vector2.ONE*64)
+- No
+	Wizard: Aight, let's stay here for a bit.

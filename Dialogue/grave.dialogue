@@ -1,0 +1,12 @@
+do Utils.debug("hi :)")
+Gravestone: R.I.P. [rainbow]XL_%QZ9*4[/rainbow] ????-2001 May God rest his (its?) soul.
+Player: Woah! My body is moving on its own!
+do Utils.turn_90("Player")
+do wait(0.01)
+do Utils.step_forward("Player")
+do wait(0.7)
+do Utils.turn_n90("Player")
+do wait(0.01)
+do Utils.step_forward("Player")
+do wait(0.7)
+do Utils.turn_n90("Player")

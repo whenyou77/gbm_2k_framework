@@ -1,0 +1,11 @@
+Wizard: Hi.
+Wizard: I have the power of teleportation.
+Wizard: Wanna try it out?
+- Sure, why not.
+	Wizard: Aight. Here goes.
+	do Utils.transfer("world2", Vector2.ONE*64)
+	do Utils.turn(Vector2.RIGHT, "Wizard")
+	do Utils.turn(Vector2.LEFT, "Player")
+- Eh, I don't feel like it.
+	Wizard: It's OK. Come back when you do.
+	do Utils.turn(Vector2.DOWN, "Wizard")

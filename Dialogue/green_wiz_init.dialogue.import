@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://lsoqhmt5un6q"
+path="res://.godot/imported/green_wiz_init.dialogue-530e5c8e9e1b8a067bd052de5c18cd03.tres"
+
+[deps]
+
+source_file="res://Dialogue/green_wiz_init.dialogue"
+dest_files=["res://.godot/imported/green_wiz_init.dialogue-530e5c8e9e1b8a067bd052de5c18cd03.tres"]
+
+[params]
+
+defaults=true

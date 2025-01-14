@@ -1,0 +1,2 @@
+if Switches.is_wizard2_blue:
+	do Utils.change_sprite("Wizard2", "actor_man_blue.png")

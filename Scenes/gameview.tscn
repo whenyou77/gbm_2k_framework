@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://clm7uwtfm23d8"]
+
+[ext_resource type="PackedScene" uid="uid://cktlplg0urpum" path="res://Scenes/Maps/world.tscn" id="1_vcwrr"]
+
+[node name="gameview" type="Node2D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(320, 240)
+render_target_update_mode = 4
+
+[node name="World" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_vcwrr")]

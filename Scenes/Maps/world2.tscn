@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://dy0clgwln8r5o"]
+[gd_scene load_steps=19 format=4 uid="uid://dy0clgwln8r5o"]
 
 [ext_resource type="Script" path="res://Scripts/setup.gd" id="1_ffpxd"]
 [ext_resource type="Script" path="res://Scripts/Grid/grid_manager.gd" id="2_pu4p1"]
 [ext_resource type="Script" path="res://Scripts/Pawns/Types/object.gd" id="4_jshgq"]
 [ext_resource type="Resource" uid="uid://66ny5v77sqxg" path="res://Dialogue/grave.dialogue" id="5_vwom6"]
 [ext_resource type="PackedScene" uid="uid://82egl20vpf7n" path="res://Scenes/Pawns/player.tscn" id="7_ruw0r"]
+[ext_resource type="Resource" uid="uid://bq5wtoo4w8knt" path="res://Dialogue/wiz1_init.dialogue" id="8_obmch"]
 [ext_resource type="Resource" uid="uid://cxtd6ooi2fddj" path="res://Dialogue/wizard2.dialogue" id="8_pwc2v"]
 [ext_resource type="Texture2D" uid="uid://dd4o7n2bo12h" path="res://Graphics/Tilesets/tileset_dungeon.png" id="9_2p5ov"]
 [ext_resource type="PackedScene" uid="uid://d3xeykecmo176" path="res://Scenes/Pawns/actor.tscn" id="10_g8f0k"]
@@ -1162,6 +1163,7 @@ frame = 478
 [node name="Wizard" parent="Pawns" instance=ExtResource("10_g8f0k")]
 position = Vector2(216, 248)
 move_pattern = Array[Vector2i]([Vector2i(0, 0)])
+init_dialogue = ExtResource("8_obmch")
 dialogue = ExtResource("8_pwc2v")
 
 [node name="Actor_Grid" type="TileMapLayer" parent="."]

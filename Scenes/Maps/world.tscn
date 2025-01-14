@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cktlplg0urpum"]
+[gd_scene load_steps=31 format=4 uid="uid://cktlplg0urpum"]
 
 [ext_resource type="Texture2D" uid="uid://clolt0da1hneb" path="res://Graphics/CollisionTiles/actor.png" id="1_ayd0k"]
 [ext_resource type="Script" path="res://Scripts/setup.gd" id="1_d0dyq"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://bo6cn6enwbigu" path="res://Dialogue/test.dialogue" id="5_pcx6s"]
 [ext_resource type="Resource" uid="uid://q1s3vle2o5h2" path="res://Dialogue/wizard.dialogue" id="6_flltj"]
 [ext_resource type="Texture2D" uid="uid://b48ako2u5cgqn" path="res://Graphics/Pawns/actor_man_blue.png" id="6_gai7n"]
+[ext_resource type="Resource" uid="uid://bq5wtoo4w8knt" path="res://Dialogue/wiz1_init.dialogue" id="7_3hjf8"]
 [ext_resource type="Script" path="res://Scripts/Pawns/Types/event.gd" id="7_8j5fh"]
 [ext_resource type="Script" path="res://Scripts/Pawns/Types/object.gd" id="7_ay8ee"]
 [ext_resource type="Resource" uid="uid://66ny5v77sqxg" path="res://Dialogue/grave.dialogue" id="7_uxtaf"]
@@ -19,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://djs0lh4e02a1p" path="res://Graphics/Pawns/actor_man_green.png" id="9_akj2q"]
 [ext_resource type="Resource" uid="uid://bn6i3oqhy3222" path="res://Dialogue/hole.dialogue" id="9_dt8t5"]
 [ext_resource type="Resource" uid="uid://dhppf7jgkh0d8" path="res://Dialogue/big_grave.dialogue" id="9_j8cka"]
+[ext_resource type="Resource" uid="uid://b6tfsjqkka15u" path="res://Dialogue/grave2.dialogue" id="15_psm8n"]
+[ext_resource type="Resource" uid="uid://bk2h5w71twol6" path="res://Dialogue/become_blue.dialogue" id="16_4mdxc"]
+[ext_resource type="Resource" uid="uid://bteyie0yltyrq" path="res://Dialogue/become_green.dialogue" id="17_q5tmb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u76ut"]
 texture = ExtResource("1_ayd0k")
@@ -337,8 +341,10 @@ texture = ExtResource("1_uo5tt")
 24:4/0 = 0
 24:4/0/custom_data_0 = -1
 25:4/0 = 0
+25:4/0/z_index = 1
 25:4/0/custom_data_0 = -1
 26:4/0 = 0
+26:4/0/z_index = 1
 26:4/0/custom_data_0 = -1
 27:4/0 = 0
 27:4/0/custom_data_0 = -1
@@ -1132,6 +1138,9 @@ custom_data_layer_0/name = "coll_type"
 custom_data_layer_0/type = 2
 sources/3 = SubResource("TileSetAtlasSource_tg86c")
 
+[sub_resource type="LabelSettings" id="LabelSettings_xbocl"]
+font_size = 11
+
 [node name="World" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_d0dyq")
 player = NodePath("Pawns/Player")
@@ -1166,6 +1175,7 @@ texture = ExtResource("6_gai7n")
 [node name="Wizard" parent="Pawns" instance=ExtResource("5_ehxcq")]
 position = Vector2(280, 136)
 move_pattern = Array[Vector2i]([Vector2i(0, 0)])
+init_dialogue = ExtResource("7_3hjf8")
 dialogue = ExtResource("6_flltj")
 
 [node name="Wizard2" parent="Pawns" instance=ExtResource("5_ehxcq")]
@@ -1188,6 +1198,17 @@ hframes = 30
 vframes = 16
 frame = 148
 
+[node name="Actor_Immobile5" type="Node2D" parent="Pawns"]
+position = Vector2(232, 88)
+script = ExtResource("7_ay8ee")
+dialogue = ExtResource("15_psm8n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pawns/Actor_Immobile5"]
+texture = ExtResource("1_uo5tt")
+hframes = 30
+vframes = 16
+frame = 148
+
 [node name="Actor_Immobile2" type="Node2D" parent="Pawns"]
 position = Vector2(392, 120)
 script = ExtResource("7_ay8ee")
@@ -1198,6 +1219,28 @@ texture = ExtResource("1_uo5tt")
 hframes = 30
 vframes = 16
 frame = 25
+
+[node name="Actor_Immobile3" type="Node2D" parent="Pawns"]
+position = Vector2(88, 184)
+script = ExtResource("7_ay8ee")
+dialogue = ExtResource("16_4mdxc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pawns/Actor_Immobile3"]
+texture = ExtResource("1_uo5tt")
+hframes = 30
+vframes = 16
+frame = 175
+
+[node name="Actor_Immobile4" type="Node2D" parent="Pawns"]
+position = Vector2(88, 216)
+script = ExtResource("7_ay8ee")
+dialogue = ExtResource("17_q5tmb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pawns/Actor_Immobile4"]
+texture = ExtResource("1_uo5tt")
+hframes = 30
+vframes = 16
+frame = 176
 
 [node name="Event_Test" type="Node2D" parent="Pawns"]
 position = Vector2(200, 152)
@@ -1223,10 +1266,28 @@ collision_enabled = false
 navigation_enabled = false
 
 [node name="Upper" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAADAAgAAwAYAAcAAAAEAAgAAwAZAAcAAAAFAAgAAwAZAAcAAAAGAAgAAwAaAAcAAAAXAAcAAwAYAAAAAAAZAAcAAwAaAAAAAAAHABEAAwAaAAMAAAAIABEAAwAaAAMAAAAJABEAAwAaAAMAAAAKABEAAwAaAAMAAAALABEAAwAaAAMAAAAMABEAAwAaAAMAAAANABEAAwAaAAMAAAAOABEAAwAaAAMAAAAPABEAAwAaAAMAAAAQABEAAwAaAAMAAAARABEAAwAaAAMAAAASABEAAwAaAAMAAAATABEAAwAaAAMAAAAUABEAAwAaAAMAAAAGABEAAwAaAAMAAAAFABEAAwAaAAMAAAAEABEAAwAaAAMAAAADABEAAwAZAAMAAAAVABEAAwAaAAMAAAAWABEAAwAaAAMAAAAXABEAAwAaAAMAAAAYABEAAwAaAAMAAAAZABEAAwAaAAMAAAAaABEAAwAaAAMAAAAbABEAAwAaAAMAAAAcABEAAwAbAAMAAAAEAAcAAwAZAAYAAAAFAAcAAwAZAAYAAAADAAcAAwAYAAYAAAAGAAcAAwAaAAYAAAAXAAUAAwASAA4AAAAXAAYAAwASAA8AAAAYAAUAAwATAA4AAAAZAAUAAwAUAA4AAAAZAAYAAwAUAA8AAAAYAAYAAwATAA8AAAA=")
+tile_map_data = PackedByteArray("AAADAAgAAwAYAAcAAAAEAAgAAwAZAAcAAAAFAAgAAwAZAAcAAAAGAAgAAwAaAAcAAAAXAAcAAwAYAAAAAAAZAAcAAwAaAAAAAAAHABEAAwAaAAMAAAAIABEAAwAaAAMAAAAJABEAAwAaAAMAAAAKABEAAwAaAAMAAAALABEAAwAaAAMAAAAMABEAAwAaAAMAAAANABEAAwAaAAMAAAAOABEAAwAaAAMAAAAPABEAAwAaAAMAAAAQABEAAwAaAAMAAAARABEAAwAaAAMAAAASABEAAwAaAAMAAAATABEAAwAaAAMAAAAUABEAAwAaAAMAAAAGABEAAwAaAAMAAAAFABEAAwAaAAMAAAAEABEAAwAaAAMAAAADABEAAwAZAAMAAAAVABEAAwAaAAMAAAAWABEAAwAaAAMAAAAXABEAAwAaAAMAAAAYABEAAwAaAAMAAAAZABEAAwAaAAMAAAAaABEAAwAaAAMAAAAbABEAAwAaAAMAAAAcABEAAwAbAAMAAAAEAAcAAwAZAAYAAAAFAAcAAwAZAAYAAAADAAcAAwAYAAYAAAAGAAcAAwAaAAYAAAAXAAUAAwASAA4AAAAXAAYAAwASAA8AAAAYAAUAAwATAA4AAAAZAAUAAwAUAA4AAAAZAAYAAwAUAA8AAAAYAAYAAwATAA8AAAAFAAoAAwAZAAQAAAAFAAwAAwAaAAQAAAA=")
 tile_set = SubResource("TileSet_252o2")
 collision_enabled = false
 navigation_enabled = false
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Background"]
+offset_left = 8.0
+offset_top = 168.0
+offset_right = 72.0
+offset_bottom = 191.0
+text = "Turn blue ->"
+label_settings = SubResource("LabelSettings_xbocl")
+
+[node name="Label2" type="Label" parent="Background"]
+offset_left = 8.0
+offset_top = 200.0
+offset_right = 80.0
+offset_bottom = 223.0
+text = "Turn green ->"
+label_settings = SubResource("LabelSettings_xbocl")
 
 [editable path="Pawns/Wanderer"]
 [editable path="Pawns/Wizard2"]

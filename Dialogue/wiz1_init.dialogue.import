@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://bq5wtoo4w8knt"
+path="res://.godot/imported/wiz1_init.dialogue-07031217586b6c820795ebe034d3e833.tres"
+
+[deps]
+
+source_file="res://Dialogue/wiz1_init.dialogue"
+dest_files=["res://.godot/imported/wiz1_init.dialogue-07031217586b6c820795ebe034d3e833.tres"]
+
+[params]
+
+defaults=true

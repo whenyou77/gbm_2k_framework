@@ -1,0 +1,1 @@
+do Utils.look_at_pawn("Wizard","Player")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://b6tfsjqkka15u"
+path="res://.godot/imported/grave2.dialogue-c96bb46ff48254caf3c6601753e41bd6.tres"
+
+[deps]
+
+source_file="res://Dialogue/grave2.dialogue"
+dest_files=["res://.godot/imported/grave2.dialogue-c96bb46ff48254caf3c6601753e41bd6.tres"]
+
+[params]
+
+defaults=true

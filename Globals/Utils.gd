@@ -6,9 +6,12 @@ var tile_size: Vector2
 
 func _ready() -> void:
 	tile_size = Vector2(get_node(Constants.world_path + "Actor_Grid").tile_set.tile_size)
+	
+func world() -> Node2D:
+	return get_node(Constants.subview_path).get_child(-1)
 
 func get_pawn(who: String) -> Node2D:
-	return get_node_or_null(NodePath(Constants.world_path + "Pawns/" + who))
+	return world().get_node_or_null(NodePath("Pawns/" + who))
 	
 func get_pawn_ent_dir(entity: Node2D) -> Vector2:
 	if entity.name == "Player":

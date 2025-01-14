@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://bk2h5w71twol6"
+path="res://.godot/imported/become_blue.dialogue-5ef1b6746375ed45ffd0a351d4c6ec5f.tres"
+
+[deps]
+
+source_file="res://Dialogue/become_blue.dialogue"
+dest_files=["res://.godot/imported/become_blue.dialogue-5ef1b6746375ed45ffd0a351d4c6ec5f.tres"]
+
+[params]
+
+defaults=true

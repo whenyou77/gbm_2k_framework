@@ -1,0 +1,1 @@
+do Utils.change_sprite("Player", "actor_man_green.png")

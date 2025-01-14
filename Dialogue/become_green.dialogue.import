@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://bteyie0yltyrq"
+path="res://.godot/imported/become_green.dialogue-07e2cc79a1d7331cb2a3c7506dd8bb68.tres"
+
+[deps]
+
+source_file="res://Dialogue/become_green.dialogue"
+dest_files=["res://.godot/imported/become_green.dialogue-07e2cc79a1d7331cb2a3c7506dd8bb68.tres"]
+
+[params]
+
+defaults=true

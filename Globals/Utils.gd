@@ -132,7 +132,7 @@ func teleport(where:Vector2i, tween:bool, who: String):
 
 func transfer(map: String, where: Vector2):
 	DialogueOw.not_first_scene = true
-	SceneManager.swap_scenes("res://Scenes/Maps/" + map + ".tscn", get_node("../gameview/SubViewportContainer/SubViewport"), get_node(Constants.world_path), "no_transition")
+	SceneManager.swap_scenes("res://Scenes/Maps/" + map + ".tscn", get_node(Constants.subview_path), get_node(Constants.subview_path).get_child(0))
 	await SceneManager.load_complete
 
 func set_speed(speed: float, who: String):

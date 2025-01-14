@@ -3,11 +3,14 @@ extends Node2D
 @export var player: Node2D
 
 func _ready() -> void:
-	_init_dialogue_signal()
-	_init_pawn_signals()
-	await SceneManager.load_complete
+	if not DialogueOw.not_first_scene:
+		init_scene()
+
+func init_scene() -> void:
 	name = "World"
+	_init_pawn_signals()
 	_run_pawn_init_dialogue()
+	_init_dialogue_signal()
 
 func _init_dialogue_signal():
 	# Setup signal to activate/deactivate player movement

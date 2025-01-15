@@ -42,10 +42,10 @@ var dialogue_line: DialogueLine:
 
 		dialogue_line = next_dialogue_line
 
-		character_label.visible = not dialogue_line.character.is_empty()
+		character_panel.visible = not dialogue_line.character.is_empty()
 		character_label.text = tr(dialogue_line.character, "dialogue")
 
-		dialogue_label.hide()
+		dialogue_panel.hide()
 		dialogue_label.dialogue_line = dialogue_line
 
 		responses_menu.hide()
@@ -55,8 +55,8 @@ var dialogue_line: DialogueLine:
 		balloon.show()
 		will_hide_balloon = false
 
-		dialogue_label.show()
 		if not dialogue_line.text.is_empty():
+			dialogue_panel.show()
 			dialogue_label.type_out()
 			await dialogue_label.finished_typing
 
@@ -80,9 +80,11 @@ var dialogue_line: DialogueLine:
 
 ## The label showing the name of the currently speaking character
 @onready var character_label: RichTextLabel = %CharacterLabel
+@onready var character_panel: PanelContainer = %CharacterPanel
 
 ## The label showing the currently spoken dialogue
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
+@onready var dialogue_panel: PanelContainer = %DialoguePanel
 
 ## The menu of responses
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu

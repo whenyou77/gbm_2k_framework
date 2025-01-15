@@ -130,11 +130,15 @@ func teleport(where:Vector2i, tween:bool, who: String):
 	var entity = get_pawn(who)
 	if entity:
 		var target_position = where*Vector2i(tile_size)+Vector2i(tile_size/2)
+		var actor_grid = world().get_node("Actor_Grid")
+		actor_grid.set_cell(Vector2i(entity.position-Vector2.ONE*8)/16, -1, Vector2i.ZERO)
 		if tween: entity.move_to(target_position)
 		else: entity.global_position = target_position
+		actor_grid.set_cell(Vector2i(target_position-Vector2i.ONE*8)/16, 0, Vector2i.ZERO)
 
 func transfer(map: String, where: Vector2):
 	DialogueOw.not_first_scene = true
+	
 	SceneManager.swap_scenes("res://Scenes/Maps/" + map + ".tscn", get_node(Constants.subview_path), get_node(Constants.subview_path).get_child(0))
 	await SceneManager.load_complete
 

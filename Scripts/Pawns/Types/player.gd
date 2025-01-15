@@ -11,6 +11,9 @@ const MOVEMENTS: Dictionary = {
 var input_history: Array[String] = []
 var cur_direction: Vector2i = Vector2i.DOWN
 
+func _ready() -> void:
+	name = "Player"
+
 func _process(_delta):
 	input_priority()
 	

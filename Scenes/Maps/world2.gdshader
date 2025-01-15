@@ -2,6 +2,7 @@ shader_type canvas_item;
 
 uniform int cell_amount = 20;
 uniform vec2 period = vec2(5., 10.);
+uniform float speed = 1.0;
 
 vec2 modulo(vec2 divident, vec2 divisor){
 	vec2 positiveDivident = mod(divident, divisor) + divisor;
@@ -39,6 +40,6 @@ float seamless_noise(vec2 uv, vec2 _period) {
 }
 
 void fragment(){
-	float noise = seamless_noise(UV+TIME/3.0, period);
-	COLOR.rgb = vec3(noise);
+	float noise = seamless_noise(UV+TIME*0.2*speed, period);
+	COLOR.rgba = vec4(noise);
 }

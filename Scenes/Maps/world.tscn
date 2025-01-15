@@ -1141,9 +1141,8 @@ sources/3 = SubResource("TileSetAtlasSource_tg86c")
 [sub_resource type="LabelSettings" id="LabelSettings_xbocl"]
 font_size = 11
 
-[node name="World" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="World" type="Node2D"]
 script = ExtResource("1_d0dyq")
-player = NodePath("Pawns/Player")
 
 [node name="Pawns" type="Node2D" parent="." node_paths=PackedStringArray("actor_grid", "event_grid")]
 z_index = 1
@@ -1282,11 +1281,11 @@ text = "Turn blue ->"
 label_settings = SubResource("LabelSettings_xbocl")
 
 [node name="Label2" type="Label" parent="Background"]
-offset_left = 8.0
+offset_left = -8.0
 offset_top = 200.0
-offset_right = 80.0
+offset_right = 69.0
 offset_bottom = 223.0
-text = "Turn green ->"
+text = "   Turn green ->"
 label_settings = SubResource("LabelSettings_xbocl")
 
 [editable path="Pawns/Wanderer"]

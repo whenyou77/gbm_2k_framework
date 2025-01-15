@@ -34,19 +34,19 @@ alignment = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Panel" type="PanelContainer" parent="Balloon/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CharacterPanel" type="PanelContainer" parent="Balloon/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/VBoxContainer/HBoxContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/VBoxContainer/HBoxContainer/CharacterPanel"]
 layout_mode = 2
 
-[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/VBoxContainer/HBoxContainer/Panel/MarginContainer"]
+[node name="CharacterLabel" type="RichTextLabel" parent="Balloon/MarginContainer/VBoxContainer/HBoxContainer/CharacterPanel/MarginContainer"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
-size_flags_horizontal = 3
 mouse_filter = 1
 bbcode_enabled = true
 text = "Llanfair­pwllgwyngyll­gogery­chwyrn­drobwll­llan­tysilio­gogo­goch"
@@ -69,13 +69,14 @@ layout_mode = 2
 text = "Response Example"
 alignment = 0
 
-[node name="Panel" type="PanelContainer" parent="Balloon/MarginContainer/VBoxContainer"]
+[node name="DialoguePanel" type="PanelContainer" parent="Balloon/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/VBoxContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/VBoxContainer/DialoguePanel"]
 layout_mode = 2
 
-[node name="DialogueLabel" parent="Balloon/MarginContainer/VBoxContainer/Panel/MarginContainer" instance=ExtResource("2_hfvdi")]
+[node name="DialogueLabel" parent="Balloon/MarginContainer/VBoxContainer/DialoguePanel/MarginContainer" instance=ExtResource("2_hfvdi")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3

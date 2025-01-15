@@ -1,4 +1,3 @@
-Now what?
 - Head to The Hole
 	do Utils.teleport(Vector2(12,9),true,"Player")
 - Stop the thought

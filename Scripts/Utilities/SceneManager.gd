@@ -33,8 +33,8 @@ extends Node
 ## approach will have limitations as well. The way I intended SceneManager for my own use, this will rarely
 ## if ever, be an issue, which is why that was an acceptable limitation. Just something to be aware of. 
 
-const LEVEL_H:int = 144	## height of levels (viewport) - only used by Zelda transition
-const LEVEL_W:int = 240	## width of levels (viewport) - only used by Zelda transition
+const LEVEL_H:int = 240	## height of levels (viewport) - only used by Zelda transition
+const LEVEL_W:int = 320	## width of levels (viewport) - only used by Zelda transition
 const VERSION:String = "1.1"	## version number for SceneManager+
 
 signal load_start(loading_screen)	## Triggered when an asset begins loading

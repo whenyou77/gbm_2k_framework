@@ -1,15 +1,25 @@
 extends Node2D
 
-@export var player: Node2D
+#@export var player: Node2D
 
 func _ready() -> void:
 	if not DialogueOw.not_first_scene:
 		init_scene()
+		_init_dialogue_signal()
 
 func init_scene() -> void:
 	name = "World"
+	if DialogueOw.not_first_scene:
+		var player = get_node_or_null("Pawns/Player")
+		if player: 
+			$Actor_Grid.set_cell(Vector2i(player.position-Vector2.ONE*8)/16, -1, Vector2i.ZERO)
+			player.free()
+		Utils.get_node("Player").reparent($Pawns)
+		$Pawns/Player.Grid = $Pawns
 	_init_pawn_signals()
 	_run_pawn_init_dialogue()
+
+func start_scene():
 	_init_dialogue_signal()
 
 func _init_dialogue_signal():

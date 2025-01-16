@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://cktlplg0urpum"]
+[gd_scene load_steps=30 format=4 uid="uid://cktlplg0urpum"]
 
 [ext_resource type="Texture2D" uid="uid://clolt0da1hneb" path="res://Graphics/CollisionTiles/actor.png" id="1_ayd0k"]
 [ext_resource type="Script" path="res://Scripts/setup.gd" id="1_d0dyq"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://d3xeykecmo176" path="res://Scenes/Pawns/actor.tscn" id="5_ehxcq"]
 [ext_resource type="Resource" uid="uid://bo6cn6enwbigu" path="res://Dialogue/test.dialogue" id="5_pcx6s"]
 [ext_resource type="Resource" uid="uid://q1s3vle2o5h2" path="res://Dialogue/wizard.dialogue" id="6_flltj"]
-[ext_resource type="Texture2D" uid="uid://b48ako2u5cgqn" path="res://Graphics/Pawns/actor_man_blue.png" id="6_gai7n"]
 [ext_resource type="Resource" uid="uid://bq5wtoo4w8knt" path="res://Dialogue/wiz1_init.dialogue" id="7_3hjf8"]
 [ext_resource type="Script" path="res://Scripts/Pawns/Types/event.gd" id="7_8j5fh"]
 [ext_resource type="Script" path="res://Scripts/Pawns/Types/object.gd" id="7_ay8ee"]
@@ -1163,13 +1162,11 @@ limit_right = 528
 limit_bottom = 376
 
 [node name="Wanderer" parent="Pawns" instance=ExtResource("5_ehxcq")]
+modulate = Color(0, 0.458824, 1, 1)
 position = Vector2(72, 120)
 move_pattern = Array[Vector2i]([Vector2i(1, 0), Vector2i(1, 0), Vector2i(1, 0), Vector2i(0, -1), Vector2i(-1, 0), Vector2i(-1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, 0)])
 dialogue = ExtResource("5_pcx6s")
 speed = 1.0
-
-[node name="Sprite" parent="Pawns/Wanderer" index="0"]
-texture = ExtResource("6_gai7n")
 
 [node name="Wizard" parent="Pawns" instance=ExtResource("5_ehxcq")]
 position = Vector2(280, 136)
@@ -1288,5 +1285,4 @@ offset_bottom = 223.0
 text = "   Turn green ->"
 label_settings = SubResource("LabelSettings_xbocl")
 
-[editable path="Pawns/Wanderer"]
 [editable path="Pawns/Wizard2"]

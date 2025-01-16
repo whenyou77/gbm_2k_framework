@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 # INTERNAL
 
@@ -138,8 +138,11 @@ func teleport(where:Vector2i, tween:bool, who: String):
 
 func transfer(map: String, where: Vector2):
 	DialogueOw.not_first_scene = true
-	
+	DialogueOw.player_allow_move.disconnect(get_pawn("Player").set_talking)
 	SceneManager.swap_scenes("res://Scenes/Maps/" + map + ".tscn", get_node(Constants.subview_path), get_node(Constants.subview_path).get_child(0))
+	await SceneManager.scene_added
+	get_node(Constants.subview_path).get_child(0).get_node("Pawns/Player").reparent(self)
+	$Player.global_position = where*16.0+Vector2.ONE*8.0
 	await SceneManager.load_complete
 
 func set_speed(speed: float, who: String):

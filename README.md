@@ -1,3 +1,5 @@
+# This repo is a fork of GBM2K modified and extended for my needs.
+
 # GBM2K-Framework
 
 The GBM2K (Grid Based Movement 2K) Framework is a Godot 4 project that facilitates the creation of 2D grid-based games like YumeNikki.

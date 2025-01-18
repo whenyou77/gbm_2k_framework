@@ -1,0 +1,9 @@
+Wizard: Maaaaaan, this looks niiiice.
+- I want out.
+	Wizard: Are you sure?
+	Wizard: Don't you want to admire the tides for a while?
+	- No. Send me back where I came from.
+		Wizard: Aight, so be it.
+		do Utils.transfer("world", Vector2(14,8))
+	- Actually, I do.
+- Sure is.

@@ -1,0 +1,5 @@
+Player: Oh, look! A manhole!
+Jump in?
+- Yes
+		do Utils.transfer("world3", Vector2(9,1))
+- No

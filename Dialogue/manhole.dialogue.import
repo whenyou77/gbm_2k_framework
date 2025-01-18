@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://cbf0myy5iknv8"
+path="res://.godot/imported/manhole.dialogue-5831fc53d0db24d2018995da4d957781.tres"
+
+[deps]
+
+source_file="res://Dialogue/manhole.dialogue"
+dest_files=["res://.godot/imported/manhole.dialogue-5831fc53d0db24d2018995da4d957781.tres"]
+
+[params]
+
+defaults=true

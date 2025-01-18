@@ -2,6 +2,7 @@ extends Pawn
 
 @warning_ignore("unused_signal") signal trigger_dialogue
 
+@export var init_dialogue: DialogueResource
 @export var dialogue: DialogueResource
 
 func trigger_event(_direction: Vector2i):

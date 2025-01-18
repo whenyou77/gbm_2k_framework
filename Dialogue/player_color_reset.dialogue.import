@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://mt4n36qf7ivs"
+path="res://.godot/imported/player_color_reset.dialogue-acfc89d62eff6ee08c3e42491a1f9749.tres"
+
+[deps]
+
+source_file="res://Dialogue/player_color_reset.dialogue"
+dest_files=["res://.godot/imported/player_color_reset.dialogue-acfc89d62eff6ee08c3e42491a1f9749.tres"]
+
+[params]
+
+defaults=true

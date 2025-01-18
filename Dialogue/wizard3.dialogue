@@ -1,6 +1,6 @@
 if not Switches.is_wizard2_blue:
 	Wizard: Hey! Look at me!
-	do Utils.change_sprite("Wizard2", "actor_man_blue.png")
+	set Utils.get_pawn("Wizard2").modulate = Color(0,0.5,1)
 	do wait(1.0)
 	Wizard: I'm blue now!
 	set Switches.is_wizard2_blue = true

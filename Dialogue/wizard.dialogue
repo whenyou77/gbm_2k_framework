@@ -3,6 +3,7 @@ Wizard: I have the power of teleportation.
 Wizard: Wanna try it out?
 - Sure, why not.
 	Wizard: Aight. Here goes.
+	do! Utils.play_global_sfx("teleport")
 	do Utils.transfer("world2", Vector2(17,15))
 	do Utils.look_at_pawn("Player", "Wizard")
 - Eh, I don't feel like it.

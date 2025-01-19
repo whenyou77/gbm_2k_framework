@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=4 uid="uid://bh1bpqjitahjg"]
+[gd_scene load_steps=26 format=4 uid="uid://bh1bpqjitahjg"]
 
 [ext_resource type="Script" path="res://Scripts/setup.gd" id="1_acdd1"]
 [ext_resource type="Script" path="res://Scripts/Grid/grid_manager.gd" id="2_0nlqg"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/water.gdshader" id="2_n1i1r"]
+[ext_resource type="AudioStream" uid="uid://c1kuyxoovb8bn" path="res://Audio/Music/ambient1.ogg" id="2_ujhdq"]
 [ext_resource type="Script" path="res://Scripts/Pawns/Types/object.gd" id="3_v84f0"]
 [ext_resource type="Resource" uid="uid://66ny5v77sqxg" path="res://Dialogue/grave.dialogue" id="4_is8v2"]
 [ext_resource type="Texture2D" uid="uid://dd4o7n2bo12h" path="res://Graphics/Tilesets/tileset_dungeon.png" id="5_8sdjk"]
@@ -1143,11 +1144,21 @@ custom_data_layer_0/name = "coll_type"
 custom_data_layer_0/type = 2
 sources/3 = SubResource("TileSetAtlasSource_tg86c")
 
+[sub_resource type="Gradient" id="Gradient_t16i4"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ecqgc"]
+gradient = SubResource("Gradient_t16i4")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.1, 0.1)
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_acdd1")
+default_music = ExtResource("2_ujhdq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-light_mask = 2
+light_mask = 524288
 material = SubResource("ShaderMaterial_vh1gi")
 offset_left = -8.0
 offset_top = -8.0
@@ -1158,7 +1169,7 @@ offset_bottom = 424.0
 position = Vector2(168, 216)
 scale = Vector2(5.25, 6.75)
 energy = 1.56
-range_item_cull_mask = 2
+range_item_cull_mask = 524288
 texture = SubResource("GradientTexture2D_nndjc")
 
 [node name="Pawns" type="Node2D" parent="." node_paths=PackedStringArray("actor_grid", "event_grid")]
@@ -1205,7 +1216,6 @@ collision_enabled = false
 navigation_enabled = false
 
 [node name="Lower" type="TileMapLayer" parent="."]
-light_mask = 0
 tile_map_data = PackedByteArray("AAAKAAAAAwAQAAQAAAAKAAEAAwAAAAwAAAAKAAIAAwAAAAwAAAAKAAMAAwAAAAwAAAAKAAQAAwAAAAwAAAAKAAUAAwAAAAwAAAAKAAYAAwAAAAwAAAAKAAcAAwAAAAwAAAAKAAgAAwAAAAwAAAAKAAkAAwAAAAwAAAAKAAoAAwAAAAwAAAAKAAsAAwAAAAwAAAAKAAwAAwAAAAwAAAAKAA0AAwAAAAwAAAAKAA4AAwAAAAwAAAAKAA8AAwAAAAwAAAAKABAAAwAAAAwAAAAKABEAAwAAAAwAAAAKABIAAwAAAAwAAAAKABMAAwAAAAwAAAAKABQAAwAAAAwAAAAKABUAAwAAAAwAAAAKABYAAwAAAAwAAAAKABcAAwAQAAYAAAALAAAAAwARAAQAAAALAAEAAwARAAUAAAALAAIAAwARAAUAAAALAAMAAwARAAUAAAALAAQAAwARAAUAAAALAAUAAwARAAUAAAALAAYAAwARAAUAAAALAAcAAwARAAUAAAALAAgAAwARAAUAAAALAAkAAwARAAUAAAALAAoAAwARAAUAAAALAAsAAwARAAUAAAALAAwAAwARAAUAAAALAA0AAwARAAUAAAALAA4AAwARAAUAAAALAA8AAwARAAUAAAALABAAAwARAAUAAAALABEAAwARAAUAAAALABIAAwARAAUAAAALABMAAwARAAUAAAALABQAAwARAAUAAAALABUAAwARAAUAAAALABYAAwARAAUAAAALABcAAwARAAYAAAAIAAAAAwAPAAQAAAAIAAEAAwAPAAUAAAAIAAIAAwAPAAUAAAAIAAMAAwAPAAUAAAAIAAQAAwAPAAUAAAAIAAUAAwAPAAUAAAAIAAYAAwAPAAUAAAAIAAcAAwAPAAUAAAAIAAgAAwAPAAUAAAAIAAkAAwAPAAUAAAAIAAoAAwAPAAUAAAAIAAsAAwAPAAUAAAAIAAwAAwAPAAUAAAAIAA0AAwAPAAUAAAAIAA4AAwAPAAUAAAAIAA8AAwAPAAUAAAAIABAAAwAPAAUAAAAIABEAAwAPAAUAAAAIABIAAwAPAAUAAAAIABMAAwAPAAUAAAAIABQAAwAPAAUAAAAIABUAAwAPAAUAAAAIABYAAwAPAAUAAAAIABcAAwAPAAYAAAAJAAAAAwAQAAQAAAAJAAEAAwAAAAwAAAAJAAIAAwAAAAwAAAAJAAMAAwAAAAwAAAAJAAQAAwAAAAwAAAAJAAUAAwAAAAwAAAAJAAYAAwAAAAwAAAAJAAcAAwAAAAwAAAAJAAgAAwAAAAwAAAAJAAkAAwAAAAwAAAAJAAoAAwAAAAwAAAAJAAsAAwAAAAwAAAAJAAwAAwAAAAwAAAAJAA0AAwAAAAwAAAAJAA4AAwAAAAwAAAAJAA8AAwAAAAwAAAAJABAAAwAAAAwAAAAJABEAAwAAAAwAAAAJABIAAwAAAAwAAAAJABMAAwAAAAwAAAAJABQAAwAAAAwAAAAJABUAAwAAAAwAAAAJABYAAwAAAAwAAAAJABcAAwAQAAYAAAAJABgAAwAQAAcAAAAJABkAAwAQAAgAAAAKABgAAwAQAAcAAAAKABkAAwAQAAgAAAAJABoAAwAQAAcAAAAKABoAAwAQAAcAAAAIABgAAwAPAAcAAAAIABkAAwAPAAgAAAAIABoAAwAPAAcAAAALABgAAwARAAcAAAALABkAAwARAAgAAAALABoAAwARAAcAAAA=")
 tile_set = SubResource("TileSet_252o2")
 collision_enabled = false
@@ -1215,6 +1225,11 @@ navigation_enabled = false
 tile_set = SubResource("TileSet_252o2")
 collision_enabled = false
 navigation_enabled = false
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+position = Vector2(160, 352)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ecqgc")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.501406, 0.501407, 0.501406, 1)

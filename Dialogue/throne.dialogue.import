@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://dun743px8o1qg"
+path="res://.godot/imported/throne.dialogue-56418dab2ebc3e4eeab73eb6490b7147.tres"
+
+[deps]
+
+source_file="res://Dialogue/throne.dialogue"
+dest_files=["res://.godot/imported/throne.dialogue-56418dab2ebc3e4eeab73eb6490b7147.tres"]
+
+[params]
+
+defaults=true

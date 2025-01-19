@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=4 uid="uid://dy0clgwln8r5o"]
+[gd_scene load_steps=22 format=4 uid="uid://dy0clgwln8r5o"]
 
 [ext_resource type="Script" path="res://Scripts/setup.gd" id="1_ffpxd"]
+[ext_resource type="AudioStream" uid="uid://brgsxc6340bv0" path="res://Audio/Music/sunvox_test1.ogg" id="2_ld7r0"]
 [ext_resource type="Script" path="res://Scripts/Grid/grid_manager.gd" id="2_pu4p1"]
 [ext_resource type="Script" path="res://Scripts/Pawns/Types/object.gd" id="4_jshgq"]
-[ext_resource type="Resource" uid="uid://66ny5v77sqxg" path="res://Dialogue/grave.dialogue" id="5_vwom6"]
+[ext_resource type="Resource" uid="uid://dun743px8o1qg" path="res://Dialogue/throne.dialogue" id="5_yyjmn"]
 [ext_resource type="Resource" uid="uid://cbf0myy5iknv8" path="res://Dialogue/manhole.dialogue" id="6_yk14i"]
 [ext_resource type="Resource" uid="uid://bq5wtoo4w8knt" path="res://Dialogue/wiz1_init.dialogue" id="8_obmch"]
 [ext_resource type="Resource" uid="uid://cxtd6ooi2fddj" path="res://Dialogue/wizard2.dialogue" id="8_pwc2v"]
@@ -1137,6 +1138,7 @@ shader_parameter/speed = 1.0
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ffpxd")
+default_music = ExtResource("2_ld7r0")
 
 [node name="Pawns" type="Node2D" parent="." node_paths=PackedStringArray("actor_grid", "event_grid")]
 z_index = 1
@@ -1148,7 +1150,7 @@ event_grid = NodePath("../Event_Grid")
 [node name="Actor_Immobile" type="Node2D" parent="Pawns"]
 position = Vector2(264, 184)
 script = ExtResource("4_jshgq")
-dialogue = ExtResource("5_vwom6")
+dialogue = ExtResource("5_yyjmn")
 
 [node name="Sprite" type="Sprite2D" parent="Pawns/Actor_Immobile"]
 texture = ExtResource("9_2p5ov")

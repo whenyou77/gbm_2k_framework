@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=4 uid="uid://cktlplg0urpum"]
+[gd_scene load_steps=31 format=4 uid="uid://cktlplg0urpum"]
 
 [ext_resource type="Texture2D" uid="uid://clolt0da1hneb" path="res://Graphics/CollisionTiles/actor.png" id="1_ayd0k"]
 [ext_resource type="Script" path="res://Scripts/setup.gd" id="1_d0dyq"]
 [ext_resource type="Texture2D" uid="uid://dd4o7n2bo12h" path="res://Graphics/Tilesets/tileset_dungeon.png" id="1_uo5tt"]
 [ext_resource type="Texture2D" uid="uid://vwmpi5st1if5" path="res://Graphics/CollisionTiles/obstacle.png" id="2_g6aja"]
+[ext_resource type="AudioStream" uid="uid://brgsxc6340bv0" path="res://Audio/Music/sunvox_test1.ogg" id="2_jmkre"]
 [ext_resource type="Script" path="res://Scripts/Grid/grid_manager.gd" id="3_1njb8"]
 [ext_resource type="PackedScene" uid="uid://82egl20vpf7n" path="res://Scenes/Pawns/player.tscn" id="4_nyxsb"]
 [ext_resource type="PackedScene" uid="uid://d3xeykecmo176" path="res://Scenes/Pawns/actor.tscn" id="5_ehxcq"]
@@ -1143,6 +1144,7 @@ font_size = 11
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_d0dyq")
+default_music = ExtResource("2_jmkre")
 
 [node name="Background" type="Node2D" parent="."]
 

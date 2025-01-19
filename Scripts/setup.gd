@@ -1,6 +1,7 @@
 extends Node2D
 
-#@export var player: Node2D
+@export var default_music: AudioStreamOggVorbis
+@export var default_bg_noise: AudioStreamOggVorbis
 
 func _ready() -> void:
 	if not DialogueOw.not_first_scene:
@@ -16,6 +17,10 @@ func init_scene() -> void:
 			player.free()
 		Utils.get_node("Player").reparent($Pawns)
 		$Pawns/Player.Grid = $Pawns
+		
+	Utils.change_music(default_music)
+	Utils.change_bg_noise(default_bg_noise)
+	
 	_init_pawn_signals()
 	_run_pawn_init_dialogue()
 

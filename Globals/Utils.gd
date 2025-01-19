@@ -2,10 +2,10 @@ extends Node2D
 
 # INTERNAL
 
-var tile_size: Vector2
-
-func _ready() -> void:
-	tile_size = Vector2(get_node_or_null(Constants.world_path + "Actor_Grid").tile_set.tile_size)
+@onready var tile_size := Vector2(get_node_or_null(Constants.world_path + "Actor_Grid").tile_set.tile_size)
+@onready var music_player := $"../gameview/GlobalMusicPlayer"
+@onready var sfx_player := $"../gameview/GlobalSfxPlayer"
+@onready var bg_noise_player := $"../gameview/GlobalBgNoisePlayer"
 	
 func world() -> Node2D:
 	return get_node(Constants.subview_path).get_child(-1)
@@ -45,6 +45,30 @@ func change_sprite(who: String, to: String):
 			sprite.name = "Sprite"
 			sprite.texture = load("res://Graphics/Pawns/"+to)
 			entity.add_child(sprite)
+			
+# AUDIO
+
+func change_music(music: AudioStreamOggVorbis):
+
+	if not music:
+		music_player.stop()
+		music_player.stream = null
+	elif music_player.stream != music:
+		music_player.stream = music
+		music_player.play()
+		
+func change_bg_noise(bg_noise: AudioStreamOggVorbis):
+		
+	if not bg_noise:
+		bg_noise_player.stop()
+		bg_noise_player.stream = null
+	elif bg_noise_player.stream != bg_noise:
+		bg_noise_player.stream = bg_noise
+		bg_noise_player.play()
+		
+func play_global_sfx(sfx: String):
+	sfx_player.stream = load("res://Audio/Sfx/"+sfx+".wav")
+	sfx_player.play()
 	
 # MOVEMENT
 

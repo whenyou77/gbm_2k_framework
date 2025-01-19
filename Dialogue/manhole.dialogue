@@ -1,5 +1,6 @@
 Player: Oh, look! A manhole!
 Jump in?
 - Yes
-		do Utils.transfer("world3", Vector2(9,1))
+	do! Utils.play_global_sfx("fall")
+	do Utils.transfer("world3", Vector2(9,1))
 - No

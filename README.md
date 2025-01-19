@@ -1,4 +1,4 @@
-# This repo is a fork of GBM2K modified and extended for my needs.
+# This repo is a fork of ![GBM2K by Oplexitie](https://github.com/Oplexitie/GBM2K-Framework) modified and extended for my needs.
 
 # GBM2K-Framework
 

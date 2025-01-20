@@ -1157,6 +1157,12 @@ fill_to = Vector2(0.1, 0.1)
 script = ExtResource("1_acdd1")
 default_music = ExtResource("2_ujhdq")
 
+[node name="CameraLimits" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 424.0
+
 [node name="ColorRect" type="ColorRect" parent="."]
 light_mask = 524288
 material = SubResource("ShaderMaterial_vh1gi")

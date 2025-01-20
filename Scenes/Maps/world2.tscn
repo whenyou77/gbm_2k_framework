@@ -1140,6 +1140,12 @@ shader_parameter/speed = 1.0
 script = ExtResource("1_ffpxd")
 default_music = ExtResource("2_ld7r0")
 
+[node name="CameraLimits" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 528.0
+offset_bottom = 368.0
+
 [node name="Pawns" type="Node2D" parent="." node_paths=PackedStringArray("actor_grid", "event_grid")]
 z_index = 1
 y_sort_enabled = true

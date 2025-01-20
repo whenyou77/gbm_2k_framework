@@ -18,6 +18,11 @@ func init_scene() -> void:
 		Utils.get_node("Player").reparent($Pawns)
 		$Pawns/Player.Grid = $Pawns
 		
+	$Pawns/Player/Camera2D.limit_left = $CameraLimits.position.x
+	$Pawns/Player/Camera2D.limit_right = $CameraLimits.position.x+$CameraLimits.size.x
+	$Pawns/Player/Camera2D.limit_top = $CameraLimits.position.x+8
+	$Pawns/Player/Camera2D.limit_bottom = $CameraLimits.position.y+$CameraLimits.size.y+8
+		
 	Utils.change_music(default_music)
 	Utils.change_bg_noise(default_bg_noise)
 	

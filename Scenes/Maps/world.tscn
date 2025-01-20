@@ -1146,6 +1146,13 @@ font_size = 11
 script = ExtResource("1_d0dyq")
 default_music = ExtResource("2_jmkre")
 
+[node name="CameraLimits" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 528.0
+offset_bottom = 368.0
+mouse_filter = 2
+
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Pawns" type="Node2D" parent="." node_paths=PackedStringArray("actor_grid", "event_grid")]

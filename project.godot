@@ -12,7 +12,7 @@ config_version=5
 
 config/name="GBM2K Framework"
 config/tags=PackedStringArray("framework")
-run/main_scene="res://Scenes/gameview.tscn"
+run/main_scene="res://Scenes/Menus/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.png"
 
@@ -22,9 +22,11 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 DialogueOw="*res://Scripts/Dialogue/Types/dialogue_ow.gd"
 SceneManager="*res://Scripts/Utilities/SceneManager.gd"
 Constants="*res://Globals/Constants.gd"
-Switches="*res://Globals/Switches.gd"
 Variables="*res://Globals/Variables.gd"
 Utils="*res://Globals/Utils.gd"
+GlobalBgNoisePlayer="*res://Globals/global_bg_noise_player.tscn"
+GlobalMusicPlayer="*res://Globals/global_music_player.tscn"
+GlobalSfxPlayer="*res://Globals/global_sfx_player.tscn"
 
 [dialogue_manager]
 

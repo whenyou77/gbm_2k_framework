@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://clacbqyx8h5yy"]
+
+[ext_resource type="Script" path="res://Scripts/Pawns/Types/object.gd" id="1_6u2p8"]
+
+[node name="Actor_Immobile" type="Node2D"]
+script = ExtResource("1_6u2p8")

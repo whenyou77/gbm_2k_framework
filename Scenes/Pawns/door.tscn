@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc0kos248whd8"]
+
+[ext_resource type="Script" path="res://Scripts/Pawns/Types/door.gd" id="1_n8stm"]
+
+[node name="door" type="Node2D"]
+script = ExtResource("1_n8stm")
+type = 2
+
+[node name="Marker2D" type="Marker2D" parent="."]

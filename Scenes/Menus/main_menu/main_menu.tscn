@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6fckq5y6utlh"]
+
+[ext_resource type="Theme" uid="uid://c4h4uq08u0itl" path="res://Graphics/theme.tres" id="1_lr88o"]
+[ext_resource type="Script" path="res://Scenes/Menus/main_menu/main_menu.gd" id="2_soq06"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lr88o")
+script = ExtResource("2_soq06")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 240.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 69.0
+offset_bottom = 72.0
+theme_override_constants/separation = 0
+
+[node name="new" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Play"
+flat = true
+alignment = 0
+
+[node name="load" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "Load Game"
+flat = true
+alignment = 0
+
+[node name="test_dialogue" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Test dialogue"
+flat = true
+alignment = 0
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+flat = true
+alignment = 0
+
+[connection signal="button_up" from="VBoxContainer/new" to="." method="_on_new_button_up"]
+[connection signal="pressed" from="VBoxContainer/load" to="." method="_on_load_pressed"]
+[connection signal="button_up" from="VBoxContainer/test_dialogue" to="." method="_on_test_dialogue_button_up"]
+[connection signal="button_up" from="VBoxContainer/quit" to="." method="_on_quit_button_up"]

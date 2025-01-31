@@ -1,2 +1,2 @@
-if Switches.is_wizard2_blue:
+if Variables.is_wizard2_blue:
 	set Utils.get_pawn("Wizard2").modulate = Color(0,0.5,1)

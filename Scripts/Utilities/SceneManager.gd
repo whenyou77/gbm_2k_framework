@@ -45,7 +45,7 @@ signal _content_finished_loading(content)	## internal - triggered when content i
 signal _content_invalid(content_path:String)	## internal - triggered when attempting to load invalid content (e.g. an asset does not exist or path is incorrect)
 signal _content_failed_to_load(content_path:String)	## internal - triggered when loading has started but failed to complete
 
-var _loading_screen_scene:PackedScene = preload("res://Scenes/Menus/loading_screen.tscn")	## reference to loading screen PackedScene
+var _loading_screen_scene:PackedScene = preload("res://Scenes/Menus/loading_screen/loading_screen.tscn")	## reference to loading screen PackedScene
 var _loading_screen:LoadingScreen	## internal - reference to loading screen instance
 var _transition:String	## internal - transition being used for current load
 var _zelda_transition_direction:Vector2	## internal - direction of zelda transition (should only be passed Vector2.UP/RIGHT/DOWN/LEFT) Is passed in when calling [code]swap_scenes_zelda()[/code]

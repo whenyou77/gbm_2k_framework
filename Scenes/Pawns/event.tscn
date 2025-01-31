@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://5davsxse5usm"]
+
+[ext_resource type="Script" path="res://Scripts/Pawns/Types/event.gd" id="1_x63dg"]
+
+[node name="Event_Test" type="Node2D"]
+script = ExtResource("1_x63dg")
+type = 2
+
+[node name="Marker2D" type="Marker2D" parent="."]

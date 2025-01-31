@@ -1,7 +1,7 @@
-if not Switches.is_wizard2_blue:
+if not Variables.is_wizard2_blue:
 	Wizard: Hey! Look at me!
 	set Utils.get_pawn("Wizard2").modulate = Color(0,0.5,1)
 	do wait(1.0)
 	Wizard: I'm blue now!
-	set Switches.is_wizard2_blue = true
+	set Variables.is_wizard2_blue = true
 Wizard: [wave]I'm blue, da-ba-dee, da-ba-di...[/wave]

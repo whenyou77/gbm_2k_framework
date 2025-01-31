@@ -1,4 +1,5 @@
 extends Pawn
+class_name PawnObject
 
 @warning_ignore("unused_signal") signal trigger_dialogue
 

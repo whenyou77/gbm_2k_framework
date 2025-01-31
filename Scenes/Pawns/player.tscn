@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=3 uid="uid://82egl20vpf7n"]
 
 [ext_resource type="Script" path="res://Scripts/Pawns/Types/player.gd" id="1_cghlj"]
-[ext_resource type="Texture2D" uid="uid://n4h41o7d7rbs" path="res://Graphics/Pawns/actor_man.png" id="2_dy3y1"]
+[ext_resource type="Texture2D" uid="uid://n4h41o7d7rbs" path="res://Graphics/Pawns/actor_man.png" id="2_1ckrk"]
 
 [sub_resource type="Animation" id="Animation_5p5oj"]
 resource_name = "idle_down"
@@ -314,7 +314,7 @@ node_connections = [&"TimeScale", 0, &"StateMachine", &"output", 0, &"TimeScale"
 script = ExtResource("1_cghlj")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_dy3y1")
+texture = ExtResource("2_1ckrk")
 offset = Vector2(0, -8)
 hframes = 3
 vframes = 4

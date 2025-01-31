@@ -2,16 +2,22 @@ extends Node2D
 
 # INTERNAL
 
-@onready var tile_size := Vector2(get_node_or_null(Constants.world_path + "Actor_Grid").tile_set.tile_size)
-@onready var music_player := $"../gameview/GlobalMusicPlayer"
-@onready var sfx_player := $"../gameview/GlobalSfxPlayer"
-@onready var bg_noise_player := $"../gameview/GlobalBgNoisePlayer"
+@onready var music_player := GlobalMusicPlayer
+@onready var sfx_player := GlobalSfxPlayer
+@onready var bg_noise_player := GlobalBgNoisePlayer
 	
 func world() -> Node2D:
 	return get_node(Constants.subview_path).get_child(-1)
 
 func get_pawn(who: String) -> Node2D:
 	return world().get_node_or_null(NodePath("Pawns/" + who))
+	
+func remove_pawn(who: String):
+	var entity = get_pawn(who)
+	if entity: 
+		entity.queue_free()
+		var actor_grid = world().get_node("Actor_Grid")
+		actor_grid.set_cell(Vector2i(entity.position-Vector2.ONE*Constants.tile_size/2)/Constants.tile_size, -1, Vector2i.ZERO)
 	
 func get_pawn_ent_dir(entity: Node2D) -> Vector2:
 	if entity.name == "Player":
@@ -77,7 +83,9 @@ func move(dir: Vector2i, who: String):
 	if entity:
 		var Grid: Node2D = entity.get_parent()
 		var target_position: Vector2i = Grid.request_move(entity, dir)
-		if target_position: entity.move_to(target_position)
+		if target_position: 
+			entity.move_to(target_position)
+			await entity.move_tween.finished
 
 func turn(dir: Vector2i, who: String):
 	var entity = get_pawn(who)
@@ -122,7 +130,9 @@ func step_forward(who: String):
 		var Grid: Node2D = entity.get_parent()
 		var dir = get_pawn_ent_dir(entity)
 		var target_position: Vector2i = Grid.request_move(entity, dir)
-		if target_position: entity.move_to(target_position)
+		if target_position: 
+			entity.move_to(target_position)
+			await entity.move_tween.finished
 
 func step_back(who: String):
 	var entity = get_pawn(who)
@@ -130,7 +140,9 @@ func step_back(who: String):
 		var Grid: Node2D = entity.get_parent()
 		var dir = get_pawn_ent_dir(entity)
 		var target_position: Vector2i = Grid.request_move(entity, -dir)
-		if target_position: entity.move_to(target_position)
+		if target_position: 
+			entity.move_to(target_position)
+			await entity.move_tween.finished
 		
 func step_right(who: String):
 	var entity = get_pawn(who)
@@ -139,7 +151,9 @@ func step_right(who: String):
 		var dir = get_pawn_ent_dir(entity)
 		var angle = deg_to_rad(rad_to_deg(atan2(dir.y,dir.x))+90)
 		var target_position: Vector2i = Grid.request_move(entity, Vector2i(cos(angle),sin(angle)))
-		if target_position: entity.move_to(target_position)
+		if target_position: 
+			entity.move_to(target_position)
+			await entity.move_tween.finished
 		
 func step_left(who: String):
 	var entity = get_pawn(who)
@@ -148,27 +162,37 @@ func step_left(who: String):
 		var dir = get_pawn_ent_dir(entity)
 		var angle = deg_to_rad(rad_to_deg(atan2(dir.y,dir.x))-90)
 		var target_position: Vector2i = Grid.request_move(entity, Vector2i(cos(angle),sin(angle)))
-		if target_position: entity.move_to(target_position)
+		if target_position: 
+			entity.move_to(target_position)
+			await entity.move_tween.finished
 
 func teleport(where:Vector2i, tween:bool, who: String):
 	var entity = get_pawn(who)
 	if entity:
-		var target_position = where*Vector2i(tile_size)+Vector2i(tile_size/2)
+		var target_position = where*Vector2i(Vector2.ONE*Constants.tile_size*1.5)
 		var actor_grid = world().get_node("Actor_Grid")
-		actor_grid.set_cell(Vector2i(entity.position-Vector2.ONE*8)/16, -1, Vector2i.ZERO)
-		if tween: entity.move_to(target_position)
+		actor_grid.set_cell(Vector2i(entity.position-Vector2.ONE*Constants.tile_size/2)/Constants.tile_size, -1, Vector2i.ZERO)
+		if tween: 
+			entity.move_to(target_position)
+			await entity.move_tween.finished
 		else: entity.global_position = target_position
-		actor_grid.set_cell(Vector2i(target_position-Vector2i.ONE*8)/16, 0, Vector2i.ZERO)
+		actor_grid.set_cell(Vector2i(target_position-Vector2i.ONE*Constants.tile_size/2)/Constants.tile_size, 0, Vector2i.ZERO)
 
-func transfer(map: String, where: Vector2):
+func transfer(map: String, where: Vector2, transition: String = "fade_to_black", dir: Vector2i = Vector2i.ZERO):
 	DialogueOw.not_first_scene = true
 	DialogueOw.player_allow_move.disconnect(get_pawn("Player").set_talking)
-	SceneManager.swap_scenes("res://Scenes/Maps/" + map + ".tscn", get_node(Constants.subview_path), get_node(Constants.subview_path).get_child(0))
+	SceneManager.swap_scenes("res://Scenes/Maps/" + map + ".tscn", get_node(Constants.subview_path), get_node(Constants.subview_path).get_child(0), transition)
 	await SceneManager.scene_added
 	get_node(Constants.subview_path).get_child(0).get_node("Pawns/Player").reparent(self)
 	$Player.global_position = where*16.0+Vector2.ONE*8.0
+	if dir != Vector2i.ZERO: set_pawn_dir(dir, $Player)
 	await SceneManager.load_complete
 
 func set_speed(speed: float, who: String):
 	var entity = get_pawn(who)
 	if entity: entity.speed = speed
+	
+# MISCELLANEOUS
+	
+func bool_to_int(b: bool) -> int:
+	return int(b)
